@@ -82,17 +82,18 @@ class _RandomWordsState extends State<RandomWords> {
             ),
           ],
         ),
-        body: ListView.builder(  // to here.
+        body: ListView.builder( // to here.
 
     // #docregion itemBuilder
-    return ListView.builder(
-        padding: const EdgeInsets.all(16.0),
-        itemBuilder: /1/ (context, i) {
-      if (i.isOdd) return const Divider(); /2/
 
-    final index = i ~/ 2; /3/
+
+        padding: const EdgeInsets.all(16.0),
+        itemBuilder: (context, i) {
+      if (i.isOdd) return const Divider();
+
+    final index = i ~/ 2;
     if (index >= _suggestions.length) {
-    _suggestions.addAll(generateWordPairs().take(10)); /4/
+    _suggestions.addAll(generateWordPairs().take(10));
     }
     final alreadySaved = _saved.contains(_suggestions[index]);
     // #docregion listTile
@@ -118,8 +119,11 @@ class _RandomWordsState extends State<RandomWords> {
     );
     // #enddocregion listTile
   },
-    );
+    ),
+
+
     // #enddocregion itemBuilder
+    );
   }
 // #enddocregion RWS-build
 // #docregion RWS-var
